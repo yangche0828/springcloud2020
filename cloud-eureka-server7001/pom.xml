@@ -9,7 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-consumer-server7001</artifactId>
+    <artifactId>cloud-eureka-server7001</artifactId>
+
+    <dependencies>
 
 
+
+    </dependencies>
 </project>
