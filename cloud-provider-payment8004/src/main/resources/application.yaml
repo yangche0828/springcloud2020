@@ -1,0 +1,11 @@
+server:
+  port: 8004
+
+#
+spring:
+  application:
+    #这个名称与eureka注册的服务名称一致
+    name: cloud-payment-service
+  cloud:
+    zookeeper:
+      connect-string: 192.168.73.101:2181
