@@ -14,7 +14,11 @@ eureka:
       #设置与Eureka server交互的地址，查询服务和注册服务都需要依赖这个地址
       #eureka集群相互注册，所以注册到其他的eureka中
       defaultZone: http://eureka7002.com:7002/eureka
-
+  server:
+    #关闭自我保护机制，保证不可用服务及时被剔除,绝情版
+    enable-self-preservation: false
+    #驱逐注册的服务间隔时间
+    eviction-interval-timer-in-ms: 2000
 ############单机版eureka#################
 #eureka:
 #  instance:

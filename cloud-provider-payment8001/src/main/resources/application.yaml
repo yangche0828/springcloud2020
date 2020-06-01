@@ -26,8 +26,21 @@ eureka:
   instance:
     #主机名修改
     instance-id: payment8001
+    #访问路径可以显示ip地址
     prefer-ip-address: true
-
+    #指示eureka客户端需要将心跳发送到eureka服务器的频率(以秒为单位，默认30秒)，以指示它仍然是活动的。
+    #如果在leaseExpirationDurationInSeconds中指定的时间段内没有收到心跳，
+    #eureka服务器将从其视图中删除该实例，方法是不允许向该实例发送流量。
+    #注意，如果实例实现HealthCheckCallback，然后决定使自己不可用，
+    #那么它仍然不能接受流量。
+    lease-renewal-interval-in-seconds: 3
+    #指示eureka服务器等待的时间(以秒为单位)，
+    #因为它在从视图中删除此实例之前收到了最后一次心跳，因此不允许向此实例发送流量。
+    #设置此值太长可能意味着即使实例不是活动的，流量也可能被路由到该实例。
+    #将此值设置得太小可能意味着，由于临时网络故障，实例可能会从流量中删除。
+    #此值至少要设置为高于leaseRenewalIntervalInSeconds中指定的值。
+    #根据本大爷的判断，这个值加上eureka的eviction-interval-timer-in-ms（驱逐注册隔离时间）必须大于发送心跳的时间，否则会有问题
+    lease-expiration-duration-in-seconds: 2
 
 
 #  zipkin:
