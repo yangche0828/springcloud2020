@@ -11,7 +11,7 @@ import java.util.UUID;
 @RequestMapping("/payment")
 public class PaymentConsulController {
 
-    @Value("${server.port}")
+    @Value(value = "${server.port}")
     private String serverPort;
 
     @GetMapping("/consul")
