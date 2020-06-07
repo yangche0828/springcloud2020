@@ -2,7 +2,6 @@ package com.yangche.springcloud.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.yangche.springcloud.service.PaymentHystrixService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,29 +24,30 @@ public class OrderHystrixController {
     @HystrixCommand
     public String paymentHystrixInfo(@PathVariable Integer id){
         String s = paymentHystrixService.paymentInfo(id);
-        int i=2/0;
+//        int i=2/0;
         log.info("*****************请求结果为：{}",s);
         return s;
     }
 
 
-    @HystrixCommand(fallbackMethod = "paymentHystrixTimeoutHandler",
-            commandProperties = {
-                    @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="5000")
-            }
-    )
+//    @HystrixCommand(fallbackMethod = "paymentHystrixTimeoutHandler",
+//            commandProperties = {
+//                    @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="5000")
+//            }
+//    )
     @GetMapping("/payment/hystrix/timeout/{id}")
+    @HystrixCommand //当为微服务的调用添加了fullback类实现了微服务调用接口后就不用每个都写一个上述的降级配置了，添加这个注解即可
     public String paymentHystrixTimeout(@PathVariable("id") Integer id){
-//        int i=10/0;
+//        int i=10/0;//测试异常处理
         String s = paymentHystrixService.paymentTimeout(id);
         log.info("*************请求结果为：{}",s);
         return s;
     }
 
-    public String paymentHystrixTimeoutHandler(Integer id){
-        String s = "我是消费方，传入id为："+id+",80系统繁忙或者运行报错，请稍后再试o(╥﹏╥)o";
-        return s;
-    }
+//    public String paymentHystrixTimeoutHandler(Integer id){
+//        String s = "我是消费方，传入id为："+id+",80系统繁忙或者运行报错，请稍后再试o(╥﹏╥)o";
+//        return s;
+//    }
 
     /**
      * 下面是全局的fallback方法
