@@ -1,0 +1,31 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+#设置openfeign客户端超时时间(OpenFeign默认支持ribbon)
+ribbon:
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 5000
+  #指的是建立连接所用的时间，适用于网络状况正常的情况下,两端连接所用的时间
+  ConnectTimeout: 5000
+  MaxAutoRetries: 0 #对当前实例的重试次数
+  MaxAutoRetriesNextServer: 1 #切换实例的重试次数 1
+
+feign:
+  hystrix:
+    enabled: true
+
+#Hystrix 熔断器默认超时时间是 1 秒钟，我们需要在配置中修改它的超时时间配置，同时也要设置 ribbon 的超时时间。
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000  #熔断超时时间
+
