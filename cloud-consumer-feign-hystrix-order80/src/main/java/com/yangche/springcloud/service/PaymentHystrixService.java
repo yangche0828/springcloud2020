@@ -16,4 +16,7 @@ public interface PaymentHystrixService {
     @GetMapping("/payment/hystrix/timeout/{id}")
     public String paymentTimeout(@PathVariable("id") Integer id);
 
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id);
+
 }

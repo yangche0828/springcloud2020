@@ -59,4 +59,6 @@ public class OrderHystrixController {
     public String paymentGlobalFallbackMethod(){
         return "[全局的fallback]";
     }
+
+
 }

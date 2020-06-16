@@ -15,4 +15,9 @@ public class PaymentFallbackService implements PaymentHystrixService{
     public String paymentTimeout(Integer id) {
         return "[----------PaymentFallbackService，笑个der，我是接口paymentTimeout的服务降级处理类(┬＿┬)]";
     }
+
+    @Override
+    public String paymentCircuitBreaker(Integer id) {
+        return null;
+    }
 }
