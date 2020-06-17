@@ -20,13 +20,13 @@ public class OrderOpenFeignController {
     private PaymentOpenFeignService paymentOpenFeignService;
 
     @GetMapping(value = "/payment/get/{id}")
-    public CommonResult<Payment> getPaymentId(@PathVariable("id") Long id){
+    public CommonResult<Payment> getPaymentId(@PathVariable("id") Long id) {
         CommonResult paymentById = paymentOpenFeignService.getPaymentById(id);
         return paymentById;
     }
 
     @GetMapping(value = "/payment/openfeign/timeout")
-    public String openFeignTimeout(){
+    public String openFeignTimeout() {
         String serverPort = paymentOpenFeignService.paymentOpenFeignTimeout();
         return serverPort;
     }

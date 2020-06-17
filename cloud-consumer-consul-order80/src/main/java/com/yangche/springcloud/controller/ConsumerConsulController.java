@@ -13,13 +13,13 @@ import javax.annotation.Resource;
 @RequestMapping("/consumer")
 public class ConsumerConsulController {
 
-    public static final String INVOKE_URL="http://consul-provider-payment";//服务名称
+    public static final String INVOKE_URL = "http://consul-provider-payment";//服务名称
 
     @Resource
     private RestTemplate restTemplate;
 
     @GetMapping("/payment/consul")
-    public String paymentInfo(){
+    public String paymentInfo() {
         return restTemplate.getForObject(INVOKE_URL + "/payment/consul", String.class);
     }
 }

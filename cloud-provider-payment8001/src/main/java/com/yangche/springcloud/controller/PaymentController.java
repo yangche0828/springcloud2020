@@ -78,10 +78,11 @@ public class PaymentController {
     /**
      * 故意设置延时，模拟复杂业务
      * openfeign的默认超时时间是1秒，如果超过一秒就会报超时的错误，这个就是为了演示这个
+     *
      * @return
      */
     @GetMapping(value = "/openfeign/timeout")
-    public String paymentOpenFeignTimeout(){
+    public String paymentOpenFeignTimeout() {
         try {
             TimeUnit.SECONDS.sleep(3l);
         } catch (InterruptedException e) {

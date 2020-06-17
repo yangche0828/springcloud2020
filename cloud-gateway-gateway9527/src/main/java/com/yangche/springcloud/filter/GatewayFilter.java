@@ -22,12 +22,12 @@ public class GatewayFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         //可以在过滤器链中做，鉴权等一些验证的逻辑
-        log.info("***********come in MyLogGateWayFilter:  "+new Date());
+        log.info("***********come in MyLogGateWayFilter:  " + new Date());
         //类似httpServerletRequest，可以拿到所有请求的数据
         ServerHttpRequest request = exchange.getRequest();
         String uname = request.getQueryParams().getFirst("uname");
         //随便一个地址，只要带着uname即可
-        if(uname == null){
+        if (uname == null) {
             log.info("*******用户名为null，非法用户，o(╥﹏╥)o");
             //返回的响应中设置参数，此处响应了一个406的状态码
             ServerHttpResponse response = exchange.getResponse();
@@ -42,9 +42,10 @@ public class GatewayFilter implements GlobalFilter, Ordered {
 
     /**
      * 方法一：实现接口Ordered
-     *      这个代表在过滤器链中的执行顺序
-     *      数值越小优先级越高
-     *方法二：添加注解@Order
+     * 这个代表在过滤器链中的执行顺序
+     * 数值越小优先级越高
+     * 方法二：添加注解@Order
+     *
      * @return
      */
     @Override

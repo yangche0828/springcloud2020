@@ -3,7 +3,7 @@ package com.yangche.springcloud.service;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PaymentFallbackService implements PaymentHystrixService{
+public class PaymentFallbackService implements PaymentHystrixService {
 
     @Override
     public String paymentInfo(Integer id) {

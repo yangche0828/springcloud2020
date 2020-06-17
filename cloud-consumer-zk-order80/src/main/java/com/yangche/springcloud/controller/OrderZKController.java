@@ -19,11 +19,11 @@ public class OrderZKController {
     private RestTemplate restTemplate;
 
     @GetMapping("/payment/zk")
-    public String paymentInfo(){
+    public String paymentInfo() {
         /**
          * 请求这个INVOKE_URL地址时，什么时候替换成zookeeper中注册的消费者的地址的？
          */
-        return restTemplate.getForObject(INVOKE_URL+"/payment/zk",String.class);
+        return restTemplate.getForObject(INVOKE_URL + "/payment/zk", String.class);
     }
 
 }

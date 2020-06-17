@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommonResult <T>{
+public class CommonResult<T> {
     private Integer code;
     private String message;
     private T data;//?
 
-    public CommonResult(Integer code,String message){
+    public CommonResult(Integer code, String message) {
         this(code, message, null);//调用的全参的构造方法
     }
 }

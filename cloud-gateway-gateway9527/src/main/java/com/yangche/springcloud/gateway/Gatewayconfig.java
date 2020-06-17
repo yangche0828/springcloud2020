@@ -9,14 +9,14 @@ import org.springframework.context.annotation.Configuration;
 public class Gatewayconfig {
 
     @Bean
-    public RouteLocator customRouteLocator(RouteLocatorBuilder routeLocatorBuilder){
-        RouteLocatorBuilder.Builder routes=routeLocatorBuilder.routes();
+    public RouteLocator customRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {
+        RouteLocatorBuilder.Builder routes = routeLocatorBuilder.routes();
         /**
          * id:这个要保证唯一
          * 访问localhost:9527/guonei会访问地址http://news.baidu.com/guonei
          */
         routes.route("path_route_yangche",
-                r->r.path("/guonei")
+                r -> r.path("/guonei")
                         .uri("http://news.baidu.com/guonei")).build();
         return routes.build();
     }

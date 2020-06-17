@@ -22,25 +22,25 @@ public class OrderHystrixController {
 
     @GetMapping("/payment/hystrix/ok/{id}")
     @HystrixCommand
-    public String paymentHystrixInfo(@PathVariable Integer id){
+    public String paymentHystrixInfo(@PathVariable Integer id) {
         String s = paymentHystrixService.paymentInfo(id);
 //        int i=2/0;
-        log.info("*****************请求结果为：{}",s);
+        log.info("*****************请求结果为：{}", s);
         return s;
     }
 
 
-//    @HystrixCommand(fallbackMethod = "paymentHystrixTimeoutHandler",
+    //    @HystrixCommand(fallbackMethod = "paymentHystrixTimeoutHandler",
 //            commandProperties = {
 //                    @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="5000")
 //            }
 //    )
     @GetMapping("/payment/hystrix/timeout/{id}")
     @HystrixCommand //当为微服务的调用添加了fullback类实现了微服务调用接口后就不用每个都写一个上述的降级配置了，添加这个注解即可
-    public String paymentHystrixTimeout(@PathVariable("id") Integer id){
+    public String paymentHystrixTimeout(@PathVariable("id") Integer id) {
 //        int i=10/0;//测试异常处理
         String s = paymentHystrixService.paymentTimeout(id);
-        log.info("*************请求结果为：{}",s);
+        log.info("*************请求结果为：{}", s);
         return s;
     }
 
@@ -54,9 +54,10 @@ public class OrderHystrixController {
      * 如果有自定义的fullback用自定义的，没有就用全局的，用这个全局的需要多配置两个地方
      * 1.类上面用@DefaultProperties(defaultFallback = "paymentGlobalFallbackMethod")指定全局的fullback方法
      * 2.在需要用的可能要用到降级的方法上添加注解@HystrixCommand
+     *
      * @return
      */
-    public String paymentGlobalFallbackMethod(){
+    public String paymentGlobalFallbackMethod() {
         return "[全局的fallback]";
     }
 

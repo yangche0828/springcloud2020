@@ -17,6 +17,7 @@ public interface PaymentOpenFeignService {
 
     /**
      * 模拟超时的情况
+     *
      * @return
      */
     @GetMapping(value = "/payment/openfeign/timeout")

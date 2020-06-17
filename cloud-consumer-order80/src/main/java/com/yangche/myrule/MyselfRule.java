@@ -10,10 +10,11 @@ public class MyselfRule {
 
     /**
      * 这个IRule是接口，ribbon的所有负载策略都是其子类
+     *
      * @return
      */
     @Bean
-    public IRule myRuleRandomRule(){
+    public IRule myRuleRandomRule() {
         return new RandomRule();//定义为随机
     }
 }

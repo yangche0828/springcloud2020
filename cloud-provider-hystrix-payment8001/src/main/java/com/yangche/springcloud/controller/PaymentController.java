@@ -18,24 +18,24 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @GetMapping("/hystrix/ok/{id}")
-    public String paymentInfo(@PathVariable Integer id){
+    public String paymentInfo(@PathVariable Integer id) {
         String result = paymentService.paymentInfoOk(id);
-        log.info("---------result:{}",result);
+        log.info("---------result:{}", result);
         return result;
     }
 
     @GetMapping("/hystrix/timeout/{id}")
-    public String paymentTimeout(@PathVariable("id") Integer id){
+    public String paymentTimeout(@PathVariable("id") Integer id) {
         String result = paymentService.paymentInfoTimeout(id);
-        log.info("---------result:{}",result);
+        log.info("---------result:{}", result);
         return result;
     }
 
     //=========服务熔断===========
     @GetMapping("/circuit/{id}")
-    public String paymentCircuitBreaker(@PathVariable("id") Integer id){
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
         String result = paymentService.paymentCircuitBreaker(id);
-        log.info("****result: "+result);
+        log.info("****result: " + result);
         return result;
     }
 }

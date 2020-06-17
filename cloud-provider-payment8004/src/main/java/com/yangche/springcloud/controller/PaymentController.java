@@ -17,7 +17,7 @@ public class PaymentController {
     private String serverPort;
 
     @GetMapping("/zk")
-    public String connectedZk(){
+    public String connectedZk() {
         String result = "serverPort:" + serverPort + "\tuuid:" + UUID.randomUUID();
         log.info(result);
         return result;
