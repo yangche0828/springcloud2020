@@ -42,13 +42,12 @@ eureka:
     #根据本大爷的判断，这个值加上eureka的eviction-interval-timer-in-ms（驱逐注册隔离时间）必须大于发送心跳的时间，否则会有问题
     lease-expiration-duration-in-seconds: 2
 
-
-#  zipkin:
-#    base-url: http://localhost:9411
-#  sleuth:
-#    sampler:
-#      #采样率值介于0到1之间，1则表示全部采集
-#      probability: 1
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      #采样率值介于0到1之间，1则表示全部采集
+      probability: 1
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
