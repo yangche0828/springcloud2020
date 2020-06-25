@@ -5,10 +5,14 @@
     <file url="file://$PROJECT_DIR$/cloud-alibaba-config-nacos-client3377" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-alibaba-consumer-nacos-order83" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-alibaba-consumer-nacos-order84" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-alibaba-order-service2001" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-alibaba-provider-payment9001" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-alibaba-provider-payment9002" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-alibaba-provider-payment9003" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-alibaba-provider-payment9004" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-alibaba-seata-account-service2003" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-alibaba-seata-order-service2001" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud-alibaba-seata-storage-service2002" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-alibaba-sentinel-service8401" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-api-commons" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-api-commons/src/main/java" charset="UTF-8" />
